@@ -23,7 +23,7 @@ public class HelloWorldController {
 
     @PutMapping()
     public String PutUsers(){
-        return  " HTTP PUT request was sent ";
+        return  " HTTP PUT  new request was sent ";
     }
 
     @DeleteMapping()
