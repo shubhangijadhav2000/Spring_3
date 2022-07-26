@@ -1,8 +1,7 @@
 package com.example.springdemo3.model;
 
-//import org.springframework.data.mongodb.core.mapping.Document;
-
-//@Document(collection="persons")
+import org.springframework.data.mongodb.core.mapping.Document;
+@Document(collection="user")
 public class Person {
 
     private String name;
