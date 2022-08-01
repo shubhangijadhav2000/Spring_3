@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 public class PersonController {
@@ -17,27 +18,27 @@ public class PersonController {
     public PersonService personService;
 
 
-    @RequestMapping("/info")
+    @RequestMapping("/person")
     public List<Person> getAllPerson(){
         return personService.getAllPerson();
     }
 
-    @RequestMapping("/info/{personId}")
+    @RequestMapping("/person/{personId}")
     public Person getPerson(@PathVariable int personId){
         return personService.getPerson(personId);
     }
 
-    @RequestMapping(method = RequestMethod.POST,value = "/info")
+    @RequestMapping(method = RequestMethod.POST,value = "/person")
     public void addPerson(@RequestBody Person person){
         personService.addPerson(person);
     }
 
-    @RequestMapping(method = RequestMethod.PUT,value = "/info/{personId}")
+    @RequestMapping(method = RequestMethod.PUT,value = "/person/{personId}")
     public Person updatePerson(@RequestBody Person person,@PathVariable int personId){
-        return personService.updatePerson(personId,person);
+            return personService.updatePerson(personId,person);
     }
 
-    @RequestMapping(method = RequestMethod.DELETE,value = "/info/{personId}")
+    @RequestMapping(method = RequestMethod.DELETE,value = "/person/{personId}")
     public String deletePerson(@PathVariable int personId){
         personService.deletePerson(personId);
         return "Deleted Successfully";
